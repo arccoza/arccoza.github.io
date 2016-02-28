@@ -104,7 +104,7 @@ input, select {
 
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
-.highlight, post pre > code {
+.highlight--block {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -903,7 +903,7 @@ pre {
 	position: relative;
 }
 
-.post code {
+.post .highlight--span {
   overflow-x: auto;
   padding: 0.5em;
   /*background-color: #f0f0f0;*/
@@ -911,12 +911,12 @@ pre {
   color: #505050;
 }
 
-.post .highlight {
+.post .highlight--block {
 	margin-bottom: 1em;
+	white-space: pre;
 }
 
-.post .highlight .line{
-	white-space: normal;
+.post .highlight--block span{
 	display: inline-block;
 	margin-bottom: 0.2em;
 }

@@ -22,26 +22,24 @@ github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github">
 <h2 id="explanation">Explanation</h2>
 <p>The plugin provides three new properties and one new value type:</p>
 <ul>
-<li>The <code>aspect-ratio</code> property makes the height of this element relative to its width, <code>height</code> will be dynamic based on the ratio. <code>aspect-ratio</code> has two aliases you can use instead:<ul>
-<li><code>ratio</code></li>
-<li><code>aspect</code></li>
+<li>The <code class="highlight highlight--span"><span class="hljs-class"><span class="hljs-keyword">aspect</span>-<span class="hljs-title">ratio</span></span></code> property makes the height of this element relative to its width, <code class="highlight highlight--span"><span class="hljs-built_in">height</span></code> will be dynamic based on the ratio. <code class="highlight highlight--span"><span class="hljs-class"><span class="hljs-keyword">aspect</span>-<span class="hljs-title">ratio</span></span></code> has two aliases you can use instead:<ul>
+<li><code class="highlight highlight--span"><span class="hljs-keyword">ratio</span></code></li>
+<li><code class="highlight highlight--span"><span class="hljs-class"><span class="hljs-keyword">aspect</span></span></code></li>
 </ul>
 </li>
-<li>An <code>aspect-ratio</code> property that includes a value expressed as <code>&#39;NUM:NUM&#39;</code> (eg. <code>&#39;4:3&#39;</code>) will automatically be converted to a percentage (3/4 * 100 = 75%). You must wrap the value in single &#39; or double &quot; quotes.</li>
+<li>An <code class="highlight highlight--span"><span class="hljs-class"><span class="hljs-keyword">aspect</span>-<span class="hljs-title">ratio</span></span></code> property that includes a value expressed as <code class="highlight highlight--span"><span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-id">#39</span>;<span class="hljs-attribute">NUM</span>:NUM&amp;<span class="hljs-number">#39</span>;</code> (eg. <code class="highlight highlight--span"><span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-id">#39</span>;<span class="hljs-attribute">4</span>:<span class="hljs-number">3</span>&amp;<span class="hljs-number">#39</span>;</code>) will automatically be converted to a percentage (3/4 * 100 = 75%). You must wrap the value in single &#39; or double &quot; quotes.</li>
 </ul>
 <p>The effect is achieved using the quirky behaviour of CSS percentage padding; any element with a percentage value for its padding property will use the width of its container to calculate that percentage.
 Therefore this plugin requires a specific HTML structure to work. The element you wish to constrain with an aspect ratio and a single inner element that will hold its contents.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"aspect-box"</span>&gt;</span>
+<pre class="highlight highlight--block"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"aspect-box"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"aspect-box__content"</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- Any content you like, very useful for video and image elements. --&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code></pre>
-<h2 id="install">Install</h2>
-<p><code>npm install postcss-aspect-ratio --save</code></p>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><h2 id="install">Install</h2>
+<p><code class="highlight highlight--span">npm <span class="hljs-keyword">install</span> postcss-aspect-ratio <span class="hljs-comment">--save</span></code></p>
 <h2 id="example-1">Example 1</h2>
-<p>A simple example using the custom ratio value <code>&#39;16:9&#39;</code>.</p>
-<pre><code class="lang-css"><span class="hljs-comment">/* Input. */</span>
+<p>A simple example using the custom ratio value <code class="highlight highlight--span"><span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-id">#39</span>;<span class="hljs-attribute">16</span>:<span class="hljs-number">9</span>&amp;<span class="hljs-number">#39</span>;</code>.</p>
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.aspect-box</span> {
   <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">background</span>: lime;
@@ -70,11 +68,9 @@ Therefore this plugin requires a specific HTML structure to work. The element yo
   <span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
   <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">56.25%</span>;
   <span class="hljs-attribute">box-sizing</span>: border-box;
-}
-</code></pre>
-<h2 id="example-2">Example 2</h2>
-<p>A more complex example using the ratio value <code>calc(&#39;4:3&#39; - 20px)</code>.</p>
-<pre><code class="lang-css"><span class="hljs-comment">/* Input. */</span>
+}</code></pre><h2 id="example-2">Example 2</h2>
+<p>A more complex example using the ratio value <code class="highlight highlight--span"><span class="hljs-selector-tag">calc</span>(&amp;<span class="hljs-selector-id">#39</span>;4<span class="hljs-selector-pseudo">:3</span>&amp;<span class="hljs-selector-id">#39</span>; <span class="hljs-selector-tag">-</span> 20<span class="hljs-selector-tag">px</span>)</code>.</p>
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.aspect-box</span> {
   <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">background</span>: lime;
@@ -103,6 +99,4 @@ Therefore this plugin requires a specific HTML structure to work. The element yo
   <span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
   <span class="hljs-attribute">padding-top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">75%</span> - <span class="hljs-number">20px</span>);
   <span class="hljs-attribute">box-sizing</span>: border-box;
-}
-</code></pre>
-</div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>
+}</code></pre></div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>

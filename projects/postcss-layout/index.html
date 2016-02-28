@@ -21,37 +21,35 @@ github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github">
 <a href="https://travis-ci.org/arccoza/postcss-layout"><img src="https://img.shields.io/travis/arccoza/postcss-layout.svg" alt="Travis Build Status"></a><a href="https://www.npmjs.com/package/postcss-layout"><img src="https://img.shields.io/npm/v/postcss-layout.svg" alt="npm pkg"></a>&nbsp;<iframe style="display:inline-block;" src="https://ghbtns.com/github-btn.html?user=arccoza&repo=postcss-layout&type=star&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe><iframe style="display:inline-block;" src="https://ghbtns.com/github-btn.html?user=arccoza&repo=postcss-layout&type=fork&count=false" frameborder="0" scrolling="0" width="60px" height="20px"></iframe></p>
 <p>The plugin provides three new properties and one @rule.</p>
 <ul>
-<li>The <code>layout</code> property in a rule makes the selected elements a container for child elements with a certain layout.</li>
-<li>The <code>@grid</code> @rule defines a grid.</li>
-<li>The <code>grid</code> property in a rule gives the selected elements a grid defined in <code>@grid</code>.</li>
-<li>The <code>[gridname]-span</code> property in a rule defines the width of child elements in a grid container.</li>
+<li>The <code class="highlight highlight--span"><span class="hljs-keyword">layout</span></code> property in a rule makes the selected elements a container for child elements with a certain layout.</li>
+<li>The <code class="highlight highlight--span"><span class="hljs-meta">@grid</span></code> @rule defines a grid.</li>
+<li>The <code class="highlight highlight--span"><span class="hljs-keyword">grid</span></code> property in a rule gives the selected elements a grid defined in <code class="highlight highlight--span"><span class="hljs-meta">@grid</span></code>.</li>
+<li>The <code class="highlight highlight--span"><span class="hljs-string">[gridname]</span>-span</code> property in a rule defines the width of child elements in a grid container.</li>
 </ul>
-<p>The plugin uses CSS <code>calc</code> for the grid system. Layouts have been tested to work in ie9+.</p>
-<p>See the <a href="http://arccoza.github.io/postcss-layout/">demo</a> or the example in the <code>example/</code> directory for usage.</p>
-<p>All layout elements are given <code>box-sizing: border-box;</code> by default.</p>
+<p>The plugin uses CSS <code class="highlight highlight--span">calc</code> for the grid system. Layouts have been tested to work in ie9+.</p>
+<p>See the <a href="http://arccoza.github.io/postcss-layout/">demo</a> or the example in the <code class="highlight highlight--span">example/</code> directory for usage.</p>
+<p>All layout elements are given <code class="highlight highlight--span"><span class="hljs-built_in">box</span>-sizing: border-<span class="hljs-built_in">box</span>;</code> by default.</p>
 <h2 id="install">Install</h2>
-<p><code>npm install postcss-layout --save-dev</code></p>
+<p><code class="highlight highlight--span">npm install postcss-layout --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span></code></p>
 <h2 id="tips">Tips</h2>
 <p>It is recommended to use the following HTML element arrangment for your layouts, for the most flexible approach:</p>
-<p><code>&lt;div class=&quot;wrapper&quot;&gt; &lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;item&quot;&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</code></p>
+<p><code class="highlight highlight--span"><span class="hljs-variable">&amp;lt</span>;div class=<span class="hljs-variable">&amp;quot</span>;wrapper<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>; <span class="hljs-variable">&amp;lt</span>;div class=<span class="hljs-variable">&amp;quot</span>;container<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>; <span class="hljs-variable">&amp;lt</span>;div class=<span class="hljs-variable">&amp;quot</span>;item<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>;<span class="hljs-variable">&amp;lt</span>;/div<span class="hljs-variable">&amp;gt</span>; <span class="hljs-variable">&amp;lt</span>;/div<span class="hljs-variable">&amp;gt</span>; <span class="hljs-variable">&amp;lt</span>;/div<span class="hljs-variable">&amp;gt</span>;</code></p>
 <p>or as I like to do it:</p>
-<p><code>&lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;inner&quot;&gt; &lt;div class=&quot;item&quot;&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</code></p>
-<p>You will quickly bulk up your final CSS file if you use the <code>layout</code> property everywhere you want a layout.
-Preferably, create a few reusable layout classes with <code>layout</code>, and apply them to your elements.</p>
+<p><code class="highlight highlight--span"><span class="hljs-variable">&amp;lt</span>;div class=<span class="hljs-variable">&amp;quot</span>;container<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>; <span class="hljs-variable">&amp;lt</span>;div class=<span class="hljs-variable">&amp;quot</span>;inner<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>; <span class="hljs-variable">&amp;lt</span>;div class=<span class="hljs-variable">&amp;quot</span>;item<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>;<span class="hljs-variable">&amp;lt</span>;/div<span class="hljs-variable">&amp;gt</span>; <span class="hljs-variable">&amp;lt</span>;/div<span class="hljs-variable">&amp;gt</span>; <span class="hljs-variable">&amp;lt</span>;/div<span class="hljs-variable">&amp;gt</span>;</code></p>
+<p>You will quickly bulk up your final CSS file if you use the <code class="highlight highlight--span"><span class="hljs-keyword">layout</span></code> property everywhere you want a layout.
+Preferably, create a few reusable layout classes with <code class="highlight highlight--span"><span class="hljs-keyword">layout</span></code>, and apply them to your elements.</p>
 <h2 id="layouts">Layouts</h2>
 <h3 id="stack">stack</h3>
-<pre><code class="lang-css"><span class="hljs-selector-class">.container</span> {
+<pre class="highlight highlight--block"><code><span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: stack [left|right|center][shrink];
-}
-</code></pre>
-<p>Creates a container with a vertically stacked &#39;tower&#39; of elements(items), using <code>display:block</code>
-or <code>display:table</code>, that can be optionally aligned left, right or center.
-Another optional property value is <code>shrink</code> which causes a stacked element to shrink wrap its contents;
+}</code></pre><p>Creates a container with a vertically stacked &#39;tower&#39; of elements(items), using <code class="highlight highlight--span"><span class="hljs-built_in">display</span>:block</code>
+or <code class="highlight highlight--span"><span class="hljs-keyword">display</span>:<span class="hljs-keyword">table</span></code>, that can be optionally aligned left, right or center.
+Another optional property value is <code class="highlight highlight--span">shrink</code> which causes a stacked element to shrink wrap its contents;
 it won&#39;t expand to fill its parent, instead make its width as small as possible to fit its contents.</p>
 <h4 id="caveats">Caveats</h4>
-<p>Firefox has <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=307866">buggy</a> table layout, and will ignore <code>min-height</code> or <code>min-width</code> on <code>shrink</code> / <code>display:table</code> elements(items).</p>
+<p>Firefox has <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=307866">buggy</a> table layout, and will ignore <code class="highlight highlight--span"><span class="hljs-built_in">min</span>-<span class="hljs-built_in">height</span></code> or <code class="highlight highlight--span"><span class="hljs-built_in">min</span>-<span class="hljs-built_in">width</span></code> on <code class="highlight highlight--span">shrink</code> / <code class="highlight highlight--span"><span class="hljs-keyword">display</span>:<span class="hljs-keyword">table</span></code> elements(items).</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-css"><span class="hljs-comment">/* Input. */</span>
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: stack right shrink;
 }
@@ -64,28 +62,24 @@ it won&#39;t expand to fill its parent, instead make its width as small as possi
   <span class="hljs-attribute">box-sizing</span>: border-box;
   <span class="hljs-attribute">display</span>: table;
   <span class="hljs-attribute">margin-left</span>: auto;
-}
-</code></pre>
-<h3 id="lines">lines</h3>
-<pre><code class="lang-css"><span class="hljs-selector-class">.container</span> {
+}</code></pre><h3 id="lines">lines</h3>
+<pre class="highlight highlight--block"><code><span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: lines [top|bottom|middle][left|right|center][nowrap];
-}
-</code></pre>
-<p>Creates horizontally arranged child elements(items) in the container, using <code>display:inline-block</code>.
+}</code></pre><p>Creates horizontally arranged child elements(items) in the container, using <code class="highlight highlight--span"><span class="hljs-built_in">display</span>:<span class="hljs-keyword">inline</span>-block</code>.
 There are optional horizontal and vertical alignment property values.
-Child elements in a <code>layout: lines</code> container will wrap when they are longer than the container width,
-unless <code>nowrap</code> is specified.
-This layout sets <code>font-size:0</code> on the container to remove whitespace, then sets <code>font-size:initial</code> on
-child elements to reset <code>font-size</code>. Be aware of this as your font sizes may not be what you expect.</p>
+Child elements in a <code class="highlight highlight--span"><span class="hljs-keyword">layout</span>: <span class="hljs-keyword">lines</span></code> container will wrap when they are longer than the container width,
+unless <code class="highlight highlight--span">nowrap</code> is specified.
+This layout sets <code class="highlight highlight--span">font-<span class="hljs-built_in">size</span>:<span class="hljs-number">0</span></code> on the container to remove whitespace, then sets <code class="highlight highlight--span"><span class="hljs-attribute">font-size</span>:<span class="hljs-attribute">initial</span></code> on
+child elements to reset <code class="highlight highlight--span">font-<span class="hljs-built_in">size</span></code>. Be aware of this as your font sizes may not be what you expect.</p>
 <h4 id="caveats">Caveats</h4>
-<p>Using the vertical align options automatically sets <code>nowrap</code>, you cannot vertically allign more than one line
-with <code>display:inline-block</code> and psuedo element technique. To vertically align multiline items use the layout
-demonstrated in the <code>example</code> directory, which uses two nested layouts, the first for vertical alignment, then
+<p>Using the vertical align options automatically sets <code class="highlight highlight--span">nowrap</code>, you cannot vertically allign more than one line
+with <code class="highlight highlight--span"><span class="hljs-built_in">display</span>:<span class="hljs-keyword">inline</span>-block</code> and psuedo element technique. To vertically align multiline items use the layout
+demonstrated in the <code class="highlight highlight--span">example</code> directory, which uses two nested layouts, the first for vertical alignment, then
 horizontal alignment inside the vertically aligned element.</p>
-<p>Grids cannot use <code>em</code> units for gutters with <code>layout:lines</code> because the container has <code>font-size:0</code> to
+<p>Grids cannot use <code class="highlight highlight--span"><span class="hljs-keyword">em</span></code> units for gutters with <code class="highlight highlight--span"><span class="hljs-keyword">layout</span>:<span class="hljs-keyword">lines</span></code> because the container has <code class="highlight highlight--span">font-<span class="hljs-built_in">size</span>:<span class="hljs-number">0</span></code> to
 deal with whitespace.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-css"><span class="hljs-comment">/* Input. */</span>
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: lines bottom center;
 }
@@ -110,22 +104,18 @@ deal with whitespace.</p>
   <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
   <span class="hljs-attribute">vertical-align</span>: middle;
-}
-</code></pre>
-<h3 id="flow">flow</h3>
-<pre><code class="lang-css"><span class="hljs-selector-class">.container</span> {
+}</code></pre><h3 id="flow">flow</h3>
+<pre class="highlight highlight--block"><code><span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: flow [left|right];
-}
-</code></pre>
-<p>Creates horizontally arranged child elements(items) in the container, using <code>float:left</code> by default.
+}</code></pre><p>Creates horizontally arranged child elements(items) in the container, using <code class="highlight highlight--span"><span class="hljs-attribute">float</span>:left</code> by default.
 There are optional horizontal arrangement property values.
-Child elements in a <code>layout: flow</code> container will wrap when they are longer than the container width.
+Child elements in a <code class="highlight highlight--span"><span class="hljs-keyword">layout</span>: <span class="hljs-keyword">flow</span></code> container will wrap when they are longer than the container width.
 This layout uses a pseudo element clear-fix technique.</p>
 <h4 id="caveats">Caveats</h4>
-<p>Using <code>left</code> or <code>right</code> options will align items left or right and also reverse item arrangement because
+<p>Using <code class="highlight highlight--span"><span class="hljs-attribute">left</span></code> or <code class="highlight highlight--span"><span class="hljs-literal">right</span></code> options will align items left or right and also reverse item arrangement because
 floats are being used to create the layout.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-css"><span class="hljs-comment">/* Input. */</span>
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: flow right;
 }
@@ -149,19 +139,15 @@ floats are being used to create the layout.</p>
   <span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
   <span class="hljs-attribute">display</span>: table;
   <span class="hljs-attribute">clear</span>: both;
-}
-</code></pre>
-<h3 id="columns">columns</h3>
-<pre><code class="lang-css"><span class="hljs-selector-class">.container</span> {
+}</code></pre><h3 id="columns">columns</h3>
+<pre class="highlight highlight--block"><code><span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: columns;
-}
-</code></pre>
-<p>Creates horizontally arranged child elements(items), using <code>display:table</code> and <code>display:table-cell</code>
+}</code></pre><p>Creates horizontally arranged child elements(items), using <code class="highlight highlight--span"><span class="hljs-keyword">display</span>:<span class="hljs-keyword">table</span></code> and <code class="highlight highlight--span"><span class="hljs-keyword">display</span>:<span class="hljs-keyword">table</span>-cell</code>
 that stretch in columns from the top to the bottom of the selected container elements,
 and horizontally fill their container.
-<em>NOTE</em> the <code>.container</code> will have a width set of <code>100%</code> by default.</p>
+<em>NOTE</em> the <code class="highlight highlight--span"><span class="hljs-title">.container</span></code> will have a width set of <code class="highlight highlight--span"><span class="hljs-number">100</span><span class="hljs-comment">%</span></code> by default.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-css"><span class="hljs-comment">/* Input. */</span>
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: columns;
 }
@@ -176,19 +162,15 @@ and horizontally fill their container.
 <span class="hljs-selector-class">.container</span> &gt; * {
   <span class="hljs-attribute">box-sizing</span>: border-box;
   <span class="hljs-attribute">display</span>: table-cell;
-}
-</code></pre>
-<h3 id="rows">rows</h3>
-<pre><code class="lang-css"><span class="hljs-selector-class">.container</span> {
+}</code></pre><h3 id="rows">rows</h3>
+<pre class="highlight highlight--block"><code><span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: rows;
-}
-</code></pre>
-<p>Creates vertically arranged child elements(items), using <code>display:table</code> and <code>display:table-row</code>
+}</code></pre><p>Creates vertically arranged child elements(items), using <code class="highlight highlight--span"><span class="hljs-keyword">display</span>:<span class="hljs-keyword">table</span></code> and <code class="highlight highlight--span"><span class="hljs-keyword">display</span>:<span class="hljs-keyword">table</span>-row</code>
 that stretch in rows from the left to the right of the selected container elements,
 and vertically fill their container.
-<em>NOTE</em> the <code>.container</code> will have a width set of <code>100%</code> by default.</p>
+<em>NOTE</em> the <code class="highlight highlight--span"><span class="hljs-title">.container</span></code> will have a width set of <code class="highlight highlight--span"><span class="hljs-number">100</span><span class="hljs-comment">%</span></code> by default.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-css"><span class="hljs-comment">/* Input. */</span>
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: rows;
 }
@@ -203,71 +185,61 @@ and vertically fill their container.
 <span class="hljs-selector-class">.container</span> &gt; * {
   <span class="hljs-attribute">box-sizing</span>: border-box;
   <span class="hljs-attribute">display</span>: table-row;
-}
-</code></pre>
-<h2 id="grids">Grids</h2>
+}</code></pre><h2 id="grids">Grids</h2>
 <h3 id="define-a-grid">Define a grid</h3>
-<pre><code class="lang-css">@<span class="hljs-keyword">grid</span> GRID_NAME {
+<pre class="highlight highlight--block"><code>@<span class="hljs-keyword">grid</span> GRID_NAME {
   <span class="hljs-selector-tag">count</span>: <span class="hljs-selector-tag">NUMBER_OF_COLUMNS</span>;
   <span class="hljs-selector-attr">[gutter: GUTTER_VALUE [VERTICAL_GUTTER_VALUE]</span>;]
-}
-</code></pre>
-<p>Define a grid with name GRID_NAME (eg. g12), number of columns NUMBER_OF_COLUMNS (eg. 12), and optional gutter GUTTER_VALUE (eg. 10px). An optional VERTICAL_GUTTER_VALUE (eg. 15px) can be set, if set then the first GUTTER_VALUE becomes the horizontal gutter.</p>
+}</code></pre><p>Define a grid with name GRID_NAME (eg. g12), number of columns NUMBER_OF_COLUMNS (eg. 12), and optional gutter GUTTER_VALUE (eg. 10px). An optional VERTICAL_GUTTER_VALUE (eg. 15px) can be set, if set then the first GUTTER_VALUE becomes the horizontal gutter.</p>
 <h3 id="use-a-grid">Use a grid</h3>
-<pre><code class="lang-css"><span class="hljs-selector-class">.container</span> {
+<pre class="highlight highlight--block"><code><span class="hljs-selector-class">.container</span> {
   <span class="hljs-attribute">layout</span>: lines;
   <span class="hljs-attribute">grid</span>: GRID_NAME;
-}
-</code></pre>
-<p>Use the <code>grid</code> property in a container to set which defined grid you want to use.
-You <strong>must</strong> set <code>layout:lines</code> or <code>layout:flow</code> or <code>layout:columns</code> on the container for the grid to work, currently the only layout values which respond to the <code>grid</code> and <code>span</code> properties. <em>NOTE</em> the <code>.container</code> will have negative margins if gutter was set, so it is recommended to place the grid <code>.container</code> in its own wrapper container.</p>
-<pre><code class="lang-css"><span class="hljs-selector-class">.child</span> {
+}</code></pre><p>Use the <code class="highlight highlight--span"><span class="hljs-keyword">grid</span></code> property in a container to set which defined grid you want to use.
+You <strong>must</strong> set <code class="highlight highlight--span"><span class="hljs-keyword">layout</span>:<span class="hljs-keyword">lines</span></code> or <code class="highlight highlight--span"><span class="hljs-keyword">layout</span>:<span class="hljs-keyword">flow</span></code> or <code class="highlight highlight--span"><span class="hljs-symbol">layout:</span>columns</code> on the container for the grid to work, currently the only layout values which respond to the <code class="highlight highlight--span"><span class="hljs-keyword">grid</span></code> and <code class="highlight highlight--span">span</code> properties. <em>NOTE</em> the <code class="highlight highlight--span"><span class="hljs-title">.container</span></code> will have negative margins if gutter was set, so it is recommended to place the grid <code class="highlight highlight--span"><span class="hljs-title">.container</span></code> in its own wrapper container.</p>
+<pre class="highlight highlight--block"><code><span class="hljs-selector-class">.child</span> {
   <span class="hljs-attribute">GRID_NAME-span</span>: <span class="hljs-number">6</span>;
-}
-</code></pre>
-<p>Use the <code>GRID_NAME-span</code> property in a child to define its width relative to the container grid.</p>
+}</code></pre><p>Use the <code class="highlight highlight--span">GRID_NAME-span</code> property in a child to define its width relative to the container grid.</p>
 <h4 id="caveats">Caveats</h4>
-<p>As mentioned before, you cannot use <code>em</code> units for gutters in a <code>layout:lines</code> container.
-You cannot use gutters with <code>layout:columns</code>, and the items will always stretch to fill remaining space.</p>
+<p>As mentioned before, you cannot use <code class="highlight highlight--span"><span class="hljs-keyword">em</span></code> units for gutters in a <code class="highlight highlight--span"><span class="hljs-keyword">layout</span>:<span class="hljs-keyword">lines</span></code> container.
+You cannot use gutters with <code class="highlight highlight--span"><span class="hljs-symbol">layout:</span>columns</code>, and the items will always stretch to fill remaining space.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-css">/* Input. */
-@grid g12 {
-  count: 12;
-  gutter: 10px;
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
+@<span class="hljs-keyword">grid</span> g12 {
+  <span class="hljs-selector-tag">count</span>: 12;
+  <span class="hljs-selector-tag">gutter</span>: 10<span class="hljs-selector-tag">px</span>;
 }
 
-.container {
-  layout: lines;
-  grid: g12;
+<span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">layout</span>: lines;
+  <span class="hljs-attribute">grid</span>: g12;
 }
 
-.child {
-  g12-span: 4;
+<span class="hljs-selector-class">.child</span> {
+  g12<span class="hljs-attribute">-span</span>: <span class="hljs-number">4</span>;
 }
 
-/* Output. */
-.container {
-  box-sizing: border-box;
-  margin-right: -0.5em;
-  margin-left: -0.5em;
+<span class="hljs-comment">/* Output. */</span>
+<span class="hljs-selector-class">.container</span> {
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+  <span class="hljs-attribute">margin-right</span>: -<span class="hljs-number">0.5em</span>;
+  <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">0.5em</span>;
 }
-.container &gt; * {
-  box-sizing: border-box;
-  display: inline-block;
-  text-align: initial;
+<span class="hljs-selector-class">.container</span> &gt; * {
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">text-align</span>: initial;
 }
-.container:before {
-  position: relative;content: "";
-  display: inline-block;
-  width: 0;
-  height: 100%;
-  vertical-align: middle;
+<span class="hljs-selector-class">.container</span><span class="hljs-selector-pseudo">:before</span> {
+  <span class="hljs-attribute">position</span>: relative;<span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
+  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">vertical-align</span>: middle;
 }
 
-.child {
-  margin-right: 0.5em;
-  margin-left: 0.5em;
-  width: calc(33.333333333333336% - 10px);
-}
-</code></pre>
-</div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>
+<span class="hljs-selector-class">.child</span> {
+  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.5em</span>;
+  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.5em</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">33.333333333333336%</span> - <span class="hljs-number">10px</span>);
+}</code></pre></div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>

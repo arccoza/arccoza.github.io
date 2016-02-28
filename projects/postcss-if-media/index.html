@@ -16,20 +16,20 @@
 </svg>
 <div class="page"><div class="page__inner"><header class="page-header"><div class="page-header__inner"><div class="page-header__masthead"><div class="page-header__logo"><img src="/img/logo.svg"></div><div class="page-header__title">arccoza</div><div class="page-header__hamburger"><svg class="page-header__icon icon-menu"><use xlink:href="#icon-menu"></use></svg></div></div><div class="page-header__nav page-header__nav--left"><a href="/">all</a><a href="/posts">posts</a><a href="/projects">projects</a></div><div class="page-header__nav page-header__nav--right"><a href="/about-contact">about & contact</a><a href="https://twitter.com/arccoza"> 
 twitter<svg class="page-header__icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></a><a href="https://github.com/arccoza"> 
-github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github"></use></svg></a></div></div></header><section class="page-body"><div class="posts posts--single"><ul class="posts__inner"><li class="posts__item"><article class="post post--full"><div class="post__inner"><h1 class="post__title">PostCSS ?If Media</h1><img src="/img/postcss-logo.svg" class="post__featured-image"><div class="post__content"><p>A PostCSS plugin for adding <code>?if media</code> queries inside rules and inline with property values.
+github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github"></use></svg></a></div></div></header><section class="page-body"><div class="posts posts--single"><ul class="posts__inner"><li class="posts__item"><article class="post post--full"><div class="post__inner"><h1 class="post__title">PostCSS ?If Media</h1><img src="/img/postcss-logo.svg" class="post__featured-image"><div class="post__content"><p>A PostCSS plugin for adding <code class="highlight highlight--span">?<span class="hljs-keyword">if</span> media</code> queries inside rules and inline with property values.
 A great way to keep style values for different media queries neatly organized and grouped together under their natural rules.
 Use with <a href="https://github.com/postcss/postcss-media-minmax">PostCSS Media Minmax</a> and <a href="https://github.com/postcss/postcss-custom-media">PostCSS Custom Media</a> for best effect.
 <!-- more -->
 <a href="https://travis-ci.org/arccoza/postcss-if-media"><img src="https://img.shields.io/travis/arccoza/postcss-if-media.svg" alt="Travis Build Status"></a><a href="https://www.npmjs.com/package/postcss-if-media"><img src="https://img.shields.io/npm/v/postcss-if-media.svg" alt="npm pkg"></a>&nbsp;<iframe style="display:inline-block;" src="https://ghbtns.com/github-btn.html?user=arccoza&repo=postcss-if-media&type=star&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe><iframe style="display:inline-block;" src="https://ghbtns.com/github-btn.html?user=arccoza&repo=postcss-if-media&type=fork&count=false" frameborder="0" scrolling="0" width="60px" height="20px"></iframe></p>
 <h2 id="explanation">Explanation</h2>
-<p>The plugin provides <code>?if media QUERY</code> as an inline declaration and a nested block, where <code>QUERY</code> is any valid media query.</p>
-<p>Any properties with the <code>?if media QUERY</code> declaration following their value, or any properties inside an <code>?if media QUERY { }</code> block will be extracted from their rule and placed in their own rule under an <code>@media QUERY</code> query.</p>
-<p>The generated <code>@media</code> queries are placed directly after the original rule to maintain specificity.</p>
+<p>The plugin provides <code class="highlight highlight--span">?<span class="hljs-keyword">if</span> media <span class="hljs-keyword">QUERY</span></code> as an inline declaration and a nested block, where <code class="highlight highlight--span"><span class="hljs-keyword">QUERY</span></code> is any valid media query.</p>
+<p>Any properties with the <code class="highlight highlight--span">?<span class="hljs-keyword">if</span> media <span class="hljs-keyword">QUERY</span></code> declaration following their value, or any properties inside an <code class="highlight highlight--span">?<span class="hljs-keyword">if</span> media <span class="hljs-keyword">QUERY</span> { }</code> block will be extracted from their rule and placed in their own rule under an <code class="highlight highlight--span"><span class="hljs-meta">@media</span> QUERY</code> query.</p>
+<p>The generated <code class="highlight highlight--span"><span class="hljs-meta">@media</span></code> queries are placed directly after the original rule to maintain specificity.</p>
 <h2 id="install">Install</h2>
-<p><code>npm install postcss-if-media --save</code></p>
+<p><code class="highlight highlight--span">npm <span class="hljs-keyword">install</span> postcss-<span class="hljs-keyword">if</span>-media <span class="hljs-comment">--save</span></code></p>
 <h2 id="example-1">Example 1</h2>
 <p>An inline declaration example.</p>
-<pre><code class="lang-css"><span class="hljs-comment">/* Input. */</span>
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.test</span> {
   <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">1em</span> ?if <span class="hljs-built_in">media</span> (min-width: <span class="hljs-number">1025px</span>);
@@ -56,49 +56,45 @@ Use with <a href="https://github.com/postcss/postcss-media-minmax">PostCSS Media
   <span class="hljs-selector-class">.test</span> {
      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.3em</span>;
   }
-}
-</code></pre>
-<h2 id="example-2">Example 2</h2>
+}</code></pre><h2 id="example-2">Example 2</h2>
 <p>A nested block example.</p>
-<pre><code class="lang-css">/* Input. */
-.test {
-  position: relative;
-  ?if media (min-width: 1025px) {
+<pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
+<span class="hljs-selector-class">.test</span> {
+  <span class="hljs-attribute">position</span>: relative;
+  ?if media (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">1025px</span>) {
     color: red;
-    margin: 0 1em;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">1em</span>;
   }
-  ?if media (min-width: 641px) and (max-width: 1024px) {
-    color: green;
-    margin: 0 0.5em;
+  ?<span class="hljs-selector-tag">if</span> <span class="hljs-selector-tag">media</span> (<span class="hljs-selector-tag">min-width</span>: 641<span class="hljs-selector-tag">px</span>) <span class="hljs-selector-tag">and</span> (<span class="hljs-selector-tag">max-width</span>: 1024<span class="hljs-selector-tag">px</span>) {
+    <span class="hljs-attribute">color</span>: green;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.5em</span>;
   }
-  ?if media (max-width: 640px) {
-    color: blue;
-    margin: 0 0.3em;
+  ?<span class="hljs-selector-tag">if</span> <span class="hljs-selector-tag">media</span> (<span class="hljs-selector-tag">max-width</span>: 640<span class="hljs-selector-tag">px</span>) {
+    <span class="hljs-attribute">color</span>: blue;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.3em</span>;
   }
 }
 
-/* Output. */
-.test {
-  position: relative;
+<span class="hljs-comment">/* Output. */</span>
+<span class="hljs-selector-class">.test</span> {
+  <span class="hljs-attribute">position</span>: relative;
 }
 
-@media (min-width: 1025px) {
-  .test {
-    color: red;
-    margin: 0 1em;
+@<span class="hljs-keyword">media</span> (min-width: <span class="hljs-number">1025px</span>) {
+  <span class="hljs-selector-class">.test</span> {
+    <span class="hljs-attribute">color</span>: red;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">1em</span>;
   }
 }
-@media (min-width: 641px) and (max-width: 1024px) {
-  .test {
-    color: green;
-    margin: 0 0.5em;
+@<span class="hljs-keyword">media</span> (min-width: <span class="hljs-number">641px</span>) and (max-width: <span class="hljs-number">1024px</span>) {
+  <span class="hljs-selector-class">.test</span> {
+    <span class="hljs-attribute">color</span>: green;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.5em</span>;
   }
 }
-@media (max-width: 640px) {
-  .test {
-    color: blue;
-    margin: 0 0.3em;
+@<span class="hljs-keyword">media</span> (max-width: <span class="hljs-number">640px</span>) {
+  <span class="hljs-selector-class">.test</span> {
+    <span class="hljs-attribute">color</span>: blue;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.3em</span>;
   }
-}
-</code></pre>
-</div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>
+}</code></pre></div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>
