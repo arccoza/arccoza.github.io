@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><!-- Chrome, Firefox OS and Opera --><meta name="theme-color" content="#191919"><!-- Windows Phone --><meta name="msapplication-navbutton-color" content="#191919"><!-- iOS Safari --><meta name="apple-mobile-web-app-status-bar-style" content="#191919"><meta name="author" content="Adrien de Pierres"><meta name="description" content="tech, code, rambling"><title>Quick Start Docker: Introduction &mdash;&nbsp;arccoza</title><link href="/favicon.png" rel="icon"><link rel="alternate" href="/rss2.xml" title="arccoza" type="application/rss2.xml"><link href="/css/main.css" rel="stylesheet" type="text/css"><script src="/js/main.js"></script><!-- != js("js/jquery.js")--><!-- != js("js/main.js")--></head><body><svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-menu" viewBox="0 0 1024 1024">
+<title>menu</title>
+<path class="path1" d="M128 213.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 725.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 469.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5z"></path>
+</symbol>
+<symbol id="icon-twitter" viewBox="0 0 1024 1024">
+<title>twitter</title>
+<path class="path1" d="M512 0c-282.77 0-512 229.23-512 512s229.23 512 512 512 512-229.23 512-512-229.23-512-512-512zM766.478 381.48c0.252 5.632 0.38 11.296 0.38 16.988 0 173.51-132.070 373.588-373.584 373.588-74.15 0-143.168-21.738-201.276-58.996 10.272 1.218 20.724 1.84 31.322 1.84 61.518 0 118.134-20.992 163.072-56.21-57.458-1.054-105.948-39.020-122.658-91.184 8.018 1.532 16.244 2.36 24.704 2.36 11.976 0 23.578-1.61 34.592-4.61-60.064-12.066-105.326-65.132-105.326-128.75 0-0.554 0-1.104 0.012-1.652 17.7 9.834 37.948 15.742 59.47 16.424-35.232-23.546-58.414-63.736-58.414-109.292 0-24.064 6.476-46.62 17.78-66.010 64.76 79.44 161.51 131.712 270.634 137.19-2.238-9.612-3.4-19.632-3.4-29.924 0-72.512 58.792-131.298 131.304-131.298 37.766 0 71.892 15.944 95.842 41.462 29.908-5.886 58.008-16.814 83.38-31.862-9.804 30.662-30.624 56.394-57.732 72.644 26.56-3.174 51.866-10.232 75.412-20.674-17.594 26.328-39.854 49.454-65.514 67.966z"></path>
+</symbol>
+<symbol id="icon-github" viewBox="0 0 1024 1024">
+<title>github</title>
+<path class="path1" d="M512.008 12.642c-282.738 0-512.008 229.218-512.008 511.998 0 226.214 146.704 418.132 350.136 485.836 25.586 4.738 34.992-11.11 34.992-24.632 0-12.204-0.48-52.542-0.696-95.324-142.448 30.976-172.504-60.41-172.504-60.41-23.282-59.176-56.848-74.916-56.848-74.916-46.452-31.778 3.51-31.124 3.51-31.124 51.4 3.61 78.476 52.766 78.476 52.766 45.672 78.27 119.776 55.64 149.004 42.558 4.588-33.086 17.852-55.68 32.506-68.464-113.73-12.942-233.276-56.85-233.276-253.032 0-55.898 20.004-101.574 52.76-137.428-5.316-12.9-22.854-64.972 4.952-135.5 0 0 43.006-13.752 140.84 52.49 40.836-11.348 84.636-17.036 128.154-17.234 43.502 0.198 87.336 5.886 128.256 17.234 97.734-66.244 140.656-52.49 140.656-52.49 27.872 70.528 10.35 122.6 5.036 135.5 32.82 35.856 52.694 81.532 52.694 137.428 0 196.654-119.778 239.95-233.79 252.624 18.364 15.89 34.724 47.046 34.724 94.812 0 68.508-0.596 123.644-0.596 140.508 0 13.628 9.222 29.594 35.172 24.566 203.322-67.776 349.842-259.626 349.842-485.768 0-282.78-229.234-511.998-511.992-511.998z"></path>
+</symbol>
+</defs>
+</svg>
+<div class="page"><div class="page__inner"><header class="page-header"><div class="page-header__inner"><div class="page-header__masthead"><div class="page-header__logo"><img src="/img/logo.svg"></div><div class="page-header__title">arccoza</div><div class="page-header__hamburger"><svg class="page-header__icon icon-menu"><use xlink:href="#icon-menu"></use></svg></div></div><div class="page-header__nav page-header__nav--left"><a href="/">all</a><a href="/posts">posts</a><a href="/projects">projects</a></div><div class="page-header__nav page-header__nav--right"><a href="/about-contact">about & contact</a><a href="https://twitter.com/arccoza"> 
+twitter<svg class="page-header__icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></a><a href="https://github.com/arccoza"> 
+github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github"></use></svg></a></div></div></header><section class="page-body"><div class="posts posts--single"><ul class="posts__inner"><li class="posts__item"><article class="post post--full"><div class="post__inner"><h1 class="post__title">Quick Start Docker: Introduction</h1><img src="/img/docker-logo.svg" class="post__featured-image"><div class="post__content"><p>This is a brisk introduction to Docker, to get you up and running as quick as possible with a decent understanding of the command line tools and the architecture of Docker containers.
+<!-- more -->
+There is a follow up article on creating images with Docker ➙ Quick Start Docker: Creating Images.</p>
+<h1 id="what-is-it-">What is it?</h1>
+<p>Docker is a tool that lets you build, use and deploy reusable images of a particular system environment.</p>
+<p>An image is a template of a Linux OS with as many or as few installed components as you need.</p>
+<p>You use an image (the template) to create containers, which are the running instances of an image.</p>
+<p>Images are composed of layers (each component or instruction used to create the image is a layer).</p>
+<p>Images can inherit from other images, starting with a base, usually a stripped down Linux OS.</p>
+<p>Create an image with some components (layers) based on a base image.</p>
+<p>Create a more complex image based on your first image with additional layers, and so on.</p>
+<p>&nbsp;</p>
+<p>Images (the templates) and containers (a running template instance) are similar to virtual machines, but use <a href="https://en.wikipedia.org/wiki/LXC" target="_blank">containerisation</a> rather than full blown virtual machines, so they are much lighter.</p>
+<p>&nbsp;</p>
+<p><strong>Example:</strong> Perhaps you need an environment for WordPress, you could use or create an image on top of a base Ubuntu image with only MariaDB installed. Then create another image that inherits from the first and adds PHP5 and Nginx.</p>
+<p>You can run multiple containers on one machine, and containers can interact with each other.</p>
+<p><strong>Example:</strong> Instead of bundling everything together for your WordPress environment, you could create one image with PHP5 and Nginx, and another image with just MariaDB and link them.</p>
+<p>Use your images for development, then deploy the same images to your server for a portable, consistent app environment.</p>
+<p>&nbsp;</p>
+<h1 id="how-to-get-it">How to get it</h1>
+<p>Most recent versions of Linux natively support Docker and containerisation, but you may want to replace the system repositories with more up to date Docker provided repos.</p>
+<p>If you have installed docker on Linux, you will need to sudo your commands unless you add the <em>docker</em> group to the OS and add users to it.</p>
+<p><strong>Example:</strong></p>
+<pre class="lang:default highlight:0 decode:true ">sudo usermod -aG docker bob</pre>
+
+<p>&nbsp;</p>
+<p>OSX and Windows do not natively support Docker or containerisation, so you will need to install Docker Toolbox to create a virtual machine to host Docker.</p>
+<p>See the install docs <a href="http://docs.docker.com/engine/installation/" target="_blank">here</a> for your OS.</p>
+<p>&nbsp;</p>
+<h1 id="how-to-build-an-image">How to build an Image</h1>
+<p>There are two ways to build an image:</p>
+<ol>
+<li>Edit an existing, base image using docker command line.</li>
+<li>Create a dockerfile, which is a recipe script used to build your image.</li>
+</ol>
+<p>See <a href="/">Quick Start Docker: Creating Images</a>, for more info.</p>
+<p>&nbsp;</p>
+<h1 id="how-to-get-an-image">How to get an Image</h1>
+<p>You can pull (download/update) images from <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>, a public repository of user and official images.</p>
+<p><strong>Example from the command line:</strong></p>
+<pre class="lang:default highlight:0 decode:true">docker pull google/nodejs:0.10.29</pre>
+
+<p>An image name is made up of three parts: <strong>[user name or organization name]/[image name]:[tag]</strong></p>
+<p><strong>[user name or organization name]</strong> ➙ The user or organization that created the image.</p>
+<p><strong>[image name]</strong> ➙ The name of the image.</p>
+<p><strong>[tag]</strong> ➙ An optional tag, used to select a particular variant of the image, defaults to latest.</p>
+<p>Images without a <strong>[user name or organization name]</strong> are root or base images provided and maintained by Docker.</p>
+<p><strong>Example:</strong></p>
+<pre class="lang:default highlight:0 decode:true ">docker pull debian:testing</pre>
+
+<p>&nbsp;</p>
+<h1 id="how-to-run-an-image">How to run an Image</h1>
+<p>When you run an image what you really do is create and run a container from the image.</p>
+<p>To start a new container based on an image from the commandline:</p>
+<pre class="lang:default highlight:0 decode:true">docker run google/nodejs:0.10.29</pre>
+
+<p>Docker will initiate your new container and return a container id (long and short versions) and assign a random name. When all the processes in a container finish the container stops.</p>
+<p>You can use docker create to do exactly the same thing, creating a container from an image, but it won’t start the container, you can start the container with docker start [container id or name].</p>
+<p>&nbsp;</p>
+<p>A more useful command to create and run a new container looks like this:</p>
+<pre class="lang:default highlight:0 decode:true">docker run --name nodejs -d google/nodejs:0.10.29</pre>
+
+<p><strong>-d</strong> ➙ will start the container in the background so you can continue to do other things from your terminal. By default containers are started in the foreground with your std in/out/err connected to the main process running in the container.</p>
+<p><strong>&#8211;name</strong> ➙ allows you to assign a meaningful name to the running container, instead of a randomly generated one.</p>
+<p>&nbsp;</p>
+<p>Most containers automatically run one or more services, you can tell docker to run a particular program or command available in the container when you start the container, by appending it to the end of the run command, this may override the default execution of the container, depending on how it was configured.</p>
+<pre class="lang:default highlight:0 decode:true">docker run --name nodejs -i -t google/nodejs:0.10.29 /bin/bash</pre>
+
+<p><strong>/bin/bash</strong> ➙ is the command/program we want docker to execute inside the container.</p>
+<p><strong>-i</strong> ➙ Keeps std in open.</p>
+<p><strong>-t</strong> ➙ Assigns a pseudo terminal to the process.</p>
+<p>Essentially this allows us to run and connect to bash shell with a terminal inside the container and interact with it.</p>
+<p>&nbsp;</p>
+<p>If you just want to run a command or program inside the container without interaction:</p>
+<pre class="lang:default highlight:0 decode:true">docker run --name nodejs -d google/nodejs:0.10.29 ls -l</pre>
+
+<p>This will create and run the container then execute the <span class="lang:default highlight:0 decode:true crayon-inline ">ls -l</span>  command.</p>
+<p>&nbsp;</p>
+<p>To see any output from your new container as it started type:</p>
+<pre class="lang:default highlight:0 decode:true">docker logs [id or name]</pre>
+
+<p>Where id is the long or short id of the container and name is the name assigned by you or docker.</p>
+<p><strong>Example:</strong></p>
+<pre class="lang:default highlight:0 decode:true">docker logs nodejs</pre>
+
+<p>This will print in your terminal all messages and errors from the processes running in your container at startup.</p>
+<p>The run command is the most complicated docker command with plenty of options to configure and customize your container. For the full list of options see the <a href="https://docs.docker.com/v1.8/reference/run/" target="_blank">reference</a>.</p>
+<p>&nbsp;</p>
+<h1 id="about-containers-images-and-linking">About Containers, Images and Linking</h1>
+<p>Containers can be designed to expose ports and volumes (directories) and use ENVIRONMENT VARIABLES.</p>
+<p>When an Image is developed it can be configured to expose (make accessible from outside the container) certain ports, perhaps port 80 if it is running a web service. Certain directories inside the container can be mounted as volumes on the host or in other containers. And environment variables can be defined to control the creation and execution of the container.</p>
+<p>All exposed ports, volumes and environment variables defined by an image can be overridden or new ones defined by the user with the run command when creating a new container. So the developer of an Image can define this configuration but the run command has final say.</p>
+<p><strong>Example:</strong></p>
+<pre class="lang:default highlight:0 decode:true">docker run -d --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=”some_password" -v /app/db/mysql:/var/lib/mysql arccoza/mariadb</pre>
+
+<p><strong>-p</strong> ➙ maps the containers exposed ports to a host port <strong>[host-port:container-port]</strong>. Anything that can access the host can then talk to the container from this port on the host, to bind to a specific interface you can provided a host ip address or the loopback address: <span class="lang:default highlight:0 decode:true crayon-inline ">127.0.0.1:3306:3306</span>  <strong>[host-ip:host-port:container-port]</strong>.</p>
+<p>So 3306 is exposed in the container and mapped to the same port on the containers host machine, meaning you can now talk to MariaDB running in the container. You can map to a different port on the host as needed, and add a /udp to use UDP ports instead of TCP: <span class="lang:default highlight:0 decode:true crayon-inline ">127.0.0.1:3306:3306/udp</span> .</p>
+<p><strong>-P</strong> ➙ use a capital -P without any other info to automatically map a containers ports to random ports on the host.</p>
+<p><strong>-e</strong> ➙ sets an environment variable in the container, <strong>[variable name=variable value]</strong>. Here we set a variable called MYSQL_ROOT_PASSWORD which is used by the container to set the database root user password. You can set additional variables that are not defined by the container image.</p>
+<p><strong>-v</strong> ➙ binds and mounts a directory (volume) on the host inside the container <strong>[host-dir:container-dir:rw|ro]</strong>. Now the /app/db/mysql directory on the host is available inside the container mounted at /var/lib/mysql, so that when MariaDB inside the container writes data to the standard /var/lib/mysql folder it will actually be writing data to /app/db/mysql on the host. If a host-dir is not provided then docker creates a new volume for the container-dir. You can optionally provide a third argument of <strong>:rw</strong> or <strong>:ro</strong> which sets the volume to read-write or read-only mode, the default is <strong>rw</strong>. Like all the other options a volume may be defined in the container image and mounted or it can be created by the run command.</p>
+<p>&nbsp;</p>
+<p>Volumes are also useful for keeping your applications code out of the container. For instance, perhaps you have a node project in a directory on your machine, you want to test it with a node container, instead of including the code in your container you can just mount your code directory inside the container and run it.</p>
+<p><strong>Example:</strong></p>
+<pre class="lang:default highlight:0 decode:true">docker run -it --rm --name myapp -v /var/myapp:/usr/src/app -w /usr/src/app node:4 node your-daemon-or-script.js</pre>
+
+<p>Here we tell docker to create a node container and mount our code from /var/myapp in the container at /usr/src/app, and run the node command on your mounted script.</p>
+<p><strong>-w</strong> ➙ sets the working directory (the default directory) for commands executed in the container.</p>
+<p><strong>&#8211;rm</strong> ➙ removes any data stored by the container when it finishes, useful when you rerun the same image multiple times for testing.</p>
+<p>&nbsp;</p>
+<p>You could use this method to share a volume among multiple containers, but there are better options. A common design pattern with docker is not to use the host to mount and share volumes among containers, but rather to create one minimalist container that is used for storage only, here you mount all the other containers volumes. Using an image with SSH access to create your storage container allows you to login and interact with the volumes.</p>
+<p><strong>Example:</strong></p>
+<pre class="lang:default highlight:0 decode:true">docker run -d --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=”some_password" -v /var/lib/mysql arccoza/mariadb
+
+docker run -d --name data_store -p 2222:22 --volumes-from mariadb ubuntu:14.04</pre>
+
+<p>Here we have two containers, mariadb exposes a volume at /var/lib/mysql and data_store pulls in all volumes from mariadb while exposing the SSH port 22 mapped to 2222 on the host.</p>
+<p><strong>&#8211;volumes-from</strong> ➙ mounts all the volumes from the named container inside this container.</p>
+<h2 id="linking">Linking</h2>
+<p>There are other ways to connect containers, you can use the &#8211;link option with the run command to connect one container to another and pass some information about the source container to the recipient container. It is essential to name your containers when working with links.</p>
+<p><strong>Example:</strong></p>
+<pre class="lang:default highlight:0 decode:true">docker run -d --name mariadb -e MYSQL_ROOT_PASSWORD=”some_password" arccoza/mariadb
+
+docker run -d --name web --link mariadb:db -v /var/myapp:/usr/src/app -w /usr/src/app node:4 node your-daemon-or-script.js</pre>
+
+<p><strong>&#8211;link</strong> ➙ links a named container [name:alias] with this container. An alias can optionally be provided that assigns a new name for the source container in the recipient container. An alias is useful when the source container or its name may change, and the recipient depends on that name.</p>
+<p>When a link is created Docker creates a secure tunnel between the containers, so no ports need to be exposed to the host or the rest of the network with the -p option, ports that were defined as exposed in the source container image will be available to the recipient.</p>
+<p>Docker shares this information about the source container with the recipient container using ENVIRONMENT VARIABLES and the /etc/hosts file. The hosts file holds name -&gt; ip address mappings, and will be automatically updated by Docker, so the alias db in the recipient container should resolve to the source container ip address.</p>
+<p>Docker also creates several environment variables in the recipient container, including those defined in the image and run command, as well as automatically defined variables prefixed with the source name or alias.</p>
+<p>See this <a href="https://docs.docker.com/v1.8/userguide/dockerlinks/#environment-variables" target="_blank">link</a> for a list of variables created by Docker.</p>
+<p>&nbsp;</p>
+<h1 id="controlling-your-containers">Controlling your containers</h1>
+<h4 id="and-other-useful-commands">and other useful commands</h4>
+<p>&nbsp;</p>
+<h3 id="for-containers">For Containers</h3>
+<h5 id="list-running-containers">List running containers</h5>
+<p>docker ps</p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-list-all-containers-span-"><span style="font-weight: 400;">List all containers</span></h5>
+<p><span style="font-weight: 400;">docker ps -a</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-list-containers-filtered-by-name-span-"><span style="font-weight: 400;">List containers filtered by name</span></h5>
+<p><span style="font-weight: 400;">docker ps -a -f ‘name=mariadb’</span></p>
+<p><span style="font-weight: 400;">see more filters </span><a href="https://docs.docker.com/v1.8/reference/commandline/ps/#filtering"><span style="font-weight: 400;">here</span></a></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-pause-container-span-"><span style="font-weight: 400;">Pause container</span></h5>
+<p><span style="font-weight: 400;">docker pause [container]</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-resume-container-span-"><span style="font-weight: 400;">Resume container</span></h5>
+<p><span style="font-weight: 400;">docker unpause [container]</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-stop-container-span-"><span style="font-weight: 400;">Stop container</span></h5>
+<p><span style="font-weight: 400;">docker stop -t 10 [container]</span></p>
+<p><span style="font-weight: 400;">-t 10 or &#8211;time=10, 10 seconds to wait for stop before killing process.</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-stop-all-containers-span-"><span style="font-weight: 400;">Stop all containers</span></h5>
+<p><span style="font-weight: 400;">docker stop $(docker ps -a -q)</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-start-container-span-"><span style="font-weight: 400;">Start container</span></h5>
+<p><span style="font-weight: 400;">docker start [container]</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-restart-container-span-"><span style="font-weight: 400;">Restart container</span></h5>
+<p><span style="font-weight: 400;">docker restart -t 10 [container]</span></p>
+<p><span style="font-weight: 400;">-t 10 or &#8211;time=10, 10 seconds to wait for stop before killing process.</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-attach-to-container-shell-span-"><span style="font-weight: 400;">Attach to container shell</span></h5>
+<p><span style="font-weight: 400;">docker exec -i -t [container] /bin/bash</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-remove-container-span-"><span style="font-weight: 400;">Remove container</span></h5>
+<p><span style="font-weight: 400;">docker rm [container]</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-remove-all-containers-span-"><span style="font-weight: 400;">Remove all containers</span></h5>
+<p><span style="font-weight: 400;">docker rm $(docker ps -a -q)</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-show-container-output-span-"><span style="font-weight: 400;">Show container output</span></h5>
+<p><span style="font-weight: 400;">docker logs [container]</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-show-processes-running-in-a-container-span-"><span style="font-weight: 400;">Show processes running in a container</span></h5>
+<p><span style="font-weight: 400;">docker top [container]</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-list-information-about-an-image-or-container-span-"><span style="font-weight: 400;">List information about an image or container</span></h5>
+<p><span style="font-weight: 400;">docker inspect [image/container name/id]</span></p>
+<p>&nbsp;</p>
+<h3 id="for-images">For Images</h3>
+<h5 id="-span-style-font-weight-400-list-all-images-span-"><span style="font-weight: 400;">List all images</span></h5>
+<p><span style="font-weight: 400;">docker images</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-search-for-a-new-image-but-really-it-s-much-easier-to-browse-docker-hub-span-"><span style="font-weight: 400;">Search for a new image (but really it’s much easier to browse docker hub)</span></h5>
+<p><span style="font-weight: 400;">docker search mongodb</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-remove-an-image-span-"><span style="font-weight: 400;">Remove an image</span></h5>
+<p><span style="font-weight: 400;">docker rmi tutum/mongodb</span></p>
+<p>&nbsp;</p>
+<h5 id="-span-style-font-weight-400-remove-all-images-span-"><span style="font-weight: 400;">Remove all images</span></h5>
+<p><span style="font-weight: 400;">docker rmi $(docker images -q)</span></p>
+</div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>
