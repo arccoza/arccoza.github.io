@@ -20,20 +20,20 @@ ga('send', 'pageview');</script></head><body><svg style="position: absolute; wid
 </symbol>
 </defs>
 </svg>
-<div class="page"><div class="page__inner"><header class="page-header"><div class="page-header__inner"><div class="page-header__masthead"><div class="page-header__logo"><img src="/img/logo.svg"></div><div class="page-header__title">arccoza</div><div class="page-header__hamburger"><svg class="page-header__icon icon-menu"><use xlink:href="#icon-menu"></use></svg></div></div><div class="page-header__nav page-header__nav--left"><a href="/">all</a><a href="/posts">posts</a><a href="/projects">projects</a></div><div class="page-header__nav page-header__nav--right"><a href="/about-contact">about & contact</a><a href="https://twitter.com/arccoza"> 
-twitter<svg class="page-header__icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></a><a href="https://github.com/arccoza"> 
-github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github"></use></svg></a></div></div></header><section class="page-body"><div class="posts posts--single"><ul class="posts__inner"><li class="posts__item"><article class="post post--full"><div class="post__inner"><h1 class="post__title">PostCSS Aspect Ratio</h1><img src="/img/postcss-logo.svg" class="post__featured-image"><div class="post__content"><p>A PostCSS plugin to fix an element&#39;s dimensions to an aspect ratio.
+<div class="main"><div class="main__inner"><header class="main-header"><div class="main-header__inner"><div class="main-header__masthead"><div class="main-header__logo"><img src="/img/logo.svg"></div><div class="main-header__title">arccoza</div><div class="main-header__hamburger"><svg class="main-header__icon icon-menu"><use xlink:href="#icon-menu"></use></svg></div></div><div class="main-header__nav main-header__nav--left"><a href="/">all</a><a href="/posts">posts</a><a href="/projects">projects</a></div><div class="main-header__nav main-header__nav--right"><a href="/about-contact">about & contact</a><a href="https://twitter.com/arccoza"> 
+twitter<svg class="main-header__icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></a><a href="https://github.com/arccoza"> 
+github<svg class="main-header__icon icon-github"><use xlink:href="#icon-github"></use></svg></a></div></div></header><section class="main-body"><div class="posts posts--single"><ul class="posts__inner"><li class="posts__item"><article class="post post--full"><div class="post__inner"><h1 class="post__title">PostCSS Aspect Ratio</h1><img src="/img/postcss-logo.svg" class="post__featured-image"><div class="post__content"><p>A PostCSS plugin to fix an element&#39;s dimensions to an aspect ratio.
 <!-- more -->
 <a href="https://travis-ci.org/arccoza/postcss-aspect-ratio"><img src="https://img.shields.io/travis/arccoza/postcss-aspect-ratio.svg" alt="Travis Build Status"></a><a href="https://www.npmjs.com/package/postcss-aspect-ratio"><img src="https://img.shields.io/npm/v/postcss-aspect-ratio.svg" alt="npm pkg"></a>&nbsp;<iframe style="display:inline-block;" src="https://ghbtns.com/github-btn.html?user=arccoza&repo=postcss-aspect-ratio&type=star&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe><iframe style="display:inline-block;" src="https://ghbtns.com/github-btn.html?user=arccoza&repo=postcss-aspect-ratio&type=fork&count=false" frameborder="0" scrolling="0" width="60px" height="20px"></iframe></p>
 <h2 id="explanation">Explanation</h2>
 <p>The plugin provides three new properties and one new value type:</p>
 <ul>
-<li>The <code class="highlight highlight--span"><span class="hljs-class"><span class="hljs-keyword">aspect</span>-<span class="hljs-title">ratio</span></span></code> property makes the height of this element relative to its width, <code class="highlight highlight--span"><span class="hljs-built_in">height</span></code> will be dynamic based on the ratio. <code class="highlight highlight--span"><span class="hljs-class"><span class="hljs-keyword">aspect</span>-<span class="hljs-title">ratio</span></span></code> has two aliases you can use instead:<ul>
-<li><code class="highlight highlight--span"><span class="hljs-keyword">ratio</span></code></li>
-<li><code class="highlight highlight--span"><span class="hljs-class"><span class="hljs-keyword">aspect</span></span></code></li>
+<li>The <code class="highlight highlight--span">aspect-ratio</code> property makes the height of this element relative to its width, <code class="highlight highlight--span">height</code> will be dynamic based on the ratio. <code class="highlight highlight--span">aspect-ratio</code> has two aliases you can use instead:<ul>
+<li><code class="highlight highlight--span">ratio</code></li>
+<li><code class="highlight highlight--span">aspect</code></li>
 </ul>
 </li>
-<li>An <code class="highlight highlight--span"><span class="hljs-class"><span class="hljs-keyword">aspect</span>-<span class="hljs-title">ratio</span></span></code> property that includes a value expressed as <code class="highlight highlight--span"><span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-id">#39</span>;<span class="hljs-attribute">NUM</span>:NUM&amp;<span class="hljs-number">#39</span>;</code> (eg. <code class="highlight highlight--span"><span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-id">#39</span>;<span class="hljs-attribute">4</span>:<span class="hljs-number">3</span>&amp;<span class="hljs-number">#39</span>;</code>) will automatically be converted to a percentage (3/4 * 100 = 75%). You must wrap the value in single &#39; or double &quot; quotes.</li>
+<li>An <code class="highlight highlight--span">aspect-ratio</code> property that includes a value expressed as <code class="highlight highlight--span">&#39;NUM:NUM&#39;</code> (eg. <code class="highlight highlight--span">&#39;4:3&#39;</code>) will automatically be converted to a percentage (3/4 * 100 = 75%). You must wrap the value in single &#39; or double &quot; quotes.</li>
 </ul>
 <p>The effect is achieved using the quirky behaviour of CSS percentage padding; any element with a percentage value for its padding property will use the width of its container to calculate that percentage.
 Therefore this plugin requires a specific HTML structure to work. The element you wish to constrain with an aspect ratio and a single inner element that will hold its contents.</p>
@@ -42,9 +42,9 @@ Therefore this plugin requires a specific HTML structure to work. The element yo
     <span class="hljs-comment">&lt;!-- Any content you like, very useful for video and image elements. --&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre><h2 id="install">Install</h2>
-<p><code class="highlight highlight--span">npm <span class="hljs-keyword">install</span> postcss-aspect-ratio <span class="hljs-comment">--save</span></code></p>
+<p><code class="highlight highlight--span">npm install postcss-aspect-ratio --save</code></p>
 <h2 id="example-1">Example 1</h2>
-<p>A simple example using the custom ratio value <code class="highlight highlight--span"><span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-id">#39</span>;<span class="hljs-attribute">16</span>:<span class="hljs-number">9</span>&amp;<span class="hljs-number">#39</span>;</code>.</p>
+<p>A simple example using the custom ratio value <code class="highlight highlight--span">&#39;16:9&#39;</code>.</p>
 <pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.aspect-box</span> {
   <span class="hljs-attribute">position</span>: relative;
@@ -75,7 +75,7 @@ Therefore this plugin requires a specific HTML structure to work. The element yo
   <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">56.25%</span>;
   <span class="hljs-attribute">box-sizing</span>: border-box;
 }</code></pre><h2 id="example-2">Example 2</h2>
-<p>A more complex example using the ratio value <code class="highlight highlight--span"><span class="hljs-selector-tag">calc</span>(&amp;<span class="hljs-selector-id">#39</span>;4<span class="hljs-selector-pseudo">:3</span>&amp;<span class="hljs-selector-id">#39</span>; <span class="hljs-selector-tag">-</span> 20<span class="hljs-selector-tag">px</span>)</code>.</p>
+<p>A more complex example using the ratio value <code class="highlight highlight--span">calc(&#39;4:3&#39; - 20px)</code>.</p>
 <pre class="highlight highlight--block"><code><span class="hljs-comment">/* Input. */</span>
 <span class="hljs-selector-class">.aspect-box</span> {
   <span class="hljs-attribute">position</span>: relative;
@@ -105,4 +105,4 @@ Therefore this plugin requires a specific HTML structure to work. The element yo
   <span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
   <span class="hljs-attribute">padding-top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">75%</span> - <span class="hljs-number">20px</span>);
   <span class="hljs-attribute">box-sizing</span>: border-box;
-}</code></pre></div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>
+}</code></pre></div><hr></div></article></li></ul></div></section><footer class="main-footer"><div class="main-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>

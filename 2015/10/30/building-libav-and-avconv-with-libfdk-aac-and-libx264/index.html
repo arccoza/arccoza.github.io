@@ -20,26 +20,26 @@ ga('send', 'pageview');</script></head><body><svg style="position: absolute; wid
 </symbol>
 </defs>
 </svg>
-<div class="page"><div class="page__inner"><header class="page-header"><div class="page-header__inner"><div class="page-header__masthead"><div class="page-header__logo"><img src="/img/logo.svg"></div><div class="page-header__title">arccoza</div><div class="page-header__hamburger"><svg class="page-header__icon icon-menu"><use xlink:href="#icon-menu"></use></svg></div></div><div class="page-header__nav page-header__nav--left"><a href="/">all</a><a href="/posts">posts</a><a href="/projects">projects</a></div><div class="page-header__nav page-header__nav--right"><a href="/about-contact">about & contact</a><a href="https://twitter.com/arccoza"> 
-twitter<svg class="page-header__icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></a><a href="https://github.com/arccoza"> 
-github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github"></use></svg></a></div></div></header><section class="page-body"><div class="posts posts--single"><ul class="posts__inner"><li class="posts__item"><article class="post post--full"><div class="post__inner"><h1 class="post__title">Building libav and avconv with libfdk_aac and libx264</h1><img src="/img/libav-logo.svg" class="post__featured-image"><div class="post__content"><p>I was trying to transcode the AC3 5.1 (6ch) audio in some MKV videos to 2ch stereo AAC, using avconv command line, and discovered that it’s native support for AAC isn’t great. An alternative is to use the Fraunhofer libfdk_aac encoder, but it isn’t available in standard system packages of libav or ffmpeg, due to licensing quirks. But you can build your own avconv from source with libfdk_aac support, and here’s a quick howto, from the terminal.
+<div class="main"><div class="main__inner"><header class="main-header"><div class="main-header__inner"><div class="main-header__masthead"><div class="main-header__logo"><img src="/img/logo.svg"></div><div class="main-header__title">arccoza</div><div class="main-header__hamburger"><svg class="main-header__icon icon-menu"><use xlink:href="#icon-menu"></use></svg></div></div><div class="main-header__nav main-header__nav--left"><a href="/">all</a><a href="/posts">posts</a><a href="/projects">projects</a></div><div class="main-header__nav main-header__nav--right"><a href="/about-contact">about & contact</a><a href="https://twitter.com/arccoza"> 
+twitter<svg class="main-header__icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></a><a href="https://github.com/arccoza"> 
+github<svg class="main-header__icon icon-github"><use xlink:href="#icon-github"></use></svg></a></div></div></header><section class="main-body"><div class="posts posts--single"><ul class="posts__inner"><li class="posts__item"><article class="post post--full"><div class="post__inner"><h1 class="post__title">Building libav and avconv with libfdk_aac and libx264</h1><img src="/img/libav-logo.svg" class="post__featured-image"><div class="post__content"><p>I was trying to transcode the AC3 5.1 (6ch) audio in some MKV videos to 2ch stereo AAC, using avconv command line, and discovered that it’s native support for AAC isn’t great. An alternative is to use the Fraunhofer libfdk_aac encoder, but it isn’t available in standard system packages of libav or ffmpeg, due to licensing quirks. But you can build your own avconv from source with libfdk_aac support, and here’s a quick howto, from the terminal.
 <!-- more --></p>
 <h2 id="howto">Howto</h2>
 <p>I’m working in Elementary OS Freya, essentially the same as Ubuntu 14.04 for these instructions.</p>
 <ol>
 <li>Remove all traces of avconv and libav with:
-<code class="highlight highlight--span">sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-built_in">remove</span> &amp;amp;<span class="hljs-meta">#8211;purge libav-tools</span></code></li>
+<code class="highlight highlight--span">sudo apt-get remove &amp;#8211;purge libav-tools</code></li>
 <li>Install dev dependencies:
-<code class="highlight highlight--span">sudo apt-get <span class="hljs-keyword">install</span> <span class="hljs-keyword">build</span>-essential</code>
-<code class="highlight highlight--span">sudo apt-<span class="hljs-keyword">get</span> install yasm</code>
-<code class="highlight highlight--span">sudo apt-<span class="hljs-built_in">get</span> install libfdk-aac-<span class="hljs-built_in">dev</span></code> (this is the AAC codec we want to add to libav)
-<code class="highlight highlight--span">sudo apt-<span class="hljs-built_in">get</span> install libx264-<span class="hljs-built_in">dev</span></code> (libx264 open source H.264 AVC codec to add to libav)</li>
+<code class="highlight highlight--span">sudo apt-get install build-essential</code>
+<code class="highlight highlight--span">sudo apt-get install yasm</code>
+<code class="highlight highlight--span">sudo apt-get install libfdk-aac-dev</code> (this is the AAC codec we want to add to libav)
+<code class="highlight highlight--span">sudo apt-get install libx264-dev</code> (libx264 open source H.264 AVC codec to add to libav)</li>
 <li>Create a working directory where you will put the source files for compilation.
-<code class="highlight highlight--span"><span class="hljs-built_in">mkdir</span> ~/temp</code> (or whatever you want to call it)
-<code class="highlight highlight--span"><span class="hljs-built_in">cd</span> ~/temp</code></li>
+<code class="highlight highlight--span">mkdir ~/temp</code> (or whatever you want to call it)
+<code class="highlight highlight--span">cd ~/temp</code></li>
 <li>Get the libav source code, either:<ul>
 <li>Clone the git repo for libav (make sure you&#8217;re in the <code class="highlight highlight--span">~/temp</code> directory).
-<code class="highlight highlight--span">git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>://git.libav.org/libav.git</code></li>
+<code class="highlight highlight--span">git clone git://git.libav.org/libav.git</code></li>
 <li>Or download a stable source release from:<ul>
 <li><a href="https://libav.org/download/" target="_blank">https://libav.org/download/</a></li>
 <li>Extract your download into <code class="highlight highlight--span">~/temp</code></li>
@@ -48,10 +48,10 @@ github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github">
 </ul>
 </li>
 <li>Change to the source directory.
-<code class="highlight highlight--span"><span class="hljs-built_in">cd</span> ~/temp/libav</code></li>
+<code class="highlight highlight--span">cd ~/temp/libav</code></li>
 <li>Create an install directory for libav/avconv, I just used:
-<code class="highlight highlight--span"><span class="hljs-built_in">mkdir</span> ~/Apps</code></li>
-<li>Configure the build for your system (you should be in ~/temp/libav), add your install directory to the <code class="highlight highlight--span"><span class="hljs-comment">--prefix</span></code> option.<pre class="highlight highlight--block"><code>./configure \
+<code class="highlight highlight--span">mkdir ~/Apps</code></li>
+<li>Configure the build for your system (you should be in ~/temp/libav), add your install directory to the <code class="highlight highlight--span">--prefix</code> option.<pre class="highlight highlight--block"><code>./configure \
 --prefix=<span class="hljs-variable">$HOME</span>/Apps \
 --enable-nonfree \
 --enable-gpl \
@@ -60,7 +60,7 @@ github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github">
 --enable-libx264 \
 --enable-libfdk-aac</code></pre>This selects the standard codecs and adds libx264 and libfdk-aac.</li>
 <li>Now, finally, make your build.
-<code class="highlight highlight--span">make <span class="hljs-variable">&amp;amp</span>;<span class="hljs-variable">&amp;amp</span>; make install</code><ul>
+<code class="highlight highlight--span">make &amp;&amp; make install</code><ul>
 <li>This might take a couple minutes.</li>
 </ul>
 </li>
@@ -69,4 +69,4 @@ github<svg class="page-header__icon icon-github"><use xlink:href="#icon-github">
 <h2 id="examples">Examples</h2>
 <h3 id="convert">Convert</h3>
 <pre class="highlight highlight--block"><code>avconv -i <span class="hljs-string">"input.mkv"</span> -c:v copy -c:a libfdk_aac -vbr 5 -ar 48000 -ac 2 “output.mp4”</code></pre><h3 id="bulk-convert">Bulk convert</h3>
-<pre class="highlight highlight--block"><code><span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> *.mkv; <span class="hljs-keyword">do</span> avconv -i <span class="hljs-string">"<span class="hljs-variable">$f</span>"</span> -c:v copy -c:a libfdk_aac -vbr 5 -ar 48000 -ac 2 <span class="hljs-string">"<span class="hljs-variable">${f%.*mkv}</span>.mp4"</span>; <span class="hljs-keyword">done</span></code></pre></div><hr></div></article></li></ul></div></section><footer class="page-footer"><div class="page-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>
+<pre class="highlight highlight--block"><code><span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> *.mkv; <span class="hljs-keyword">do</span> avconv -i <span class="hljs-string">"<span class="hljs-variable">$f</span>"</span> -c:v copy -c:a libfdk_aac -vbr 5 -ar 48000 -ac 2 <span class="hljs-string">"<span class="hljs-variable">${f%.*mkv}</span>.mp4"</span>; <span class="hljs-keyword">done</span></code></pre></div><hr></div></article></li></ul></div></section><footer class="main-footer"><div class="main-footer__inner"><span>Site, content, and logo &copy; copyright 2016 Adrien de Pierres.</span></div></footer></div></div></body></html>
